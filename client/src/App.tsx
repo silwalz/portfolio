@@ -10,7 +10,7 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 
-const githubPagesBase = "/silvia-walz-portfolio";
+const githubPagesBase = "/portfolio";
 
 function AppRouter() {
   return (
