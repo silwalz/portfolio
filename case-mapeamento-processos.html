@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case: Mapeamento de Processos AS-IS/TO-BE | Silvia Walz</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg: #fafafa; --surface: #ffffff; --border: #e4e4e7; --text-main: #18181b; --text-muted: #71717a; --accent: #2563eb; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
+        body { background-color: var(--bg); color: var(--text-main); line-height: 1.7; padding: 3rem 1.5rem; }
+        .container { max-width: 800px; margin: 0 auto; }
+        .back-link { display: inline-block; color: var(--accent); text-decoration: none; font-weight: 600; font-size: 0.9rem; margin-bottom: 2rem; }
+        .back-link:hover { text-decoration: underline; }
+        h1 { font-size: 2.2rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 1rem; }
+        .meta-info { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.5rem; border-bottom: 1px solid var(--border); padding-bottom: 1.5rem; font-size: 0.875rem; color: var(--text-muted); }
+        .meta-item strong { color: var(--text-main); }
+        h2 { font-size: 1.4rem; font-weight: 600; margin: 2.5rem 0 1rem 0; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; }
+        h3 { font-size: 1.1rem; font-weight: 600; margin: 1.5rem 0 0.5rem 0; }
+        p, li { color: #3f3f46; font-size: 0.975rem; margin-bottom: 1rem; }
+        ul, ol { padding-left: 1.25rem; margin-bottom: 1.25rem; }
+        .highlight-box { background: #eff6ff; border-left: 4px solid var(--accent); padding: 1.25rem; border-radius: 6px; margin: 1.5rem 0; }
+        .checklist-box { background: #f4f4f5; padding: 1.25rem; border-radius: 8px; margin: 1.5rem 0; border: 1px solid var(--border); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← Voltar para o Portfólio</a>
+        
+        <h1>Acelerando a Entrega de Dados em 64% através do Mapeamento de Processos AS-IS e TO-BE</h1>
+        
+        <div class="meta-info">
+            <div class="meta-item"><strong>Papel:</strong> Product Owner</div>
+            <div class="meta-item"><strong>Foco:</strong> Product Discovery, Engenharia de Requisitos e Governança</div>
+            <div class="meta-item"><strong>Ferramentas:</strong> Bizagi (BPMN 2.0), Jira, Notion, SQL</div>
+        </div>
+
+        <h2>1. Contexto & O Problema de Negócio</h2>
+        <p>Demandas de análises e estudos de dados chegavam com requisitos vagos e sem direcionamento claro de negócio[cite: 14]. Isso gerava um ciclo recorrente de retrabalho, alto lead time e desalinhamento entre as expectativas dos clientes/stakeholders e as entregas da equipe técnica[cite: 14].</p>
+        
+        <div class="highlight-box">
+            <strong>Gargalos Identificados:</strong>
+            <ul>
+                <li><strong>Falta de Alinhamento Inicial:</strong> Solicitações abertas sem definição clara de qual decisão o estudo guiaria[cite: 14].</li>
+                <li><strong>Escopo Volátil (Scope Creep):</strong> Mudanças constantes de escopo durante a fase de desenvolvimento[cite: 14].</li>
+                <li><strong>Desperdício de Capacidade:</strong> Consultas SQL complexas executadas para responder a perguntas não priorizadas[cite: 14].</li>
+                <li><strong>Refação Elevada:</strong> Constante necessidade de ajustes pós-entrega por falta de critérios de aceite claros[cite: 14].</li>
+            </ul>
+        </div>
+
+        <h2>2. Mapeamento de Processos: AS-IS vs. TO-BE</h2>
+        <p>Desenhei o fluxo de trabalho em notação BPMN 2.0 no Bizagi para mapear o processo e reorganizar as responsabilidades em raias (Stakeholders/Clientes, PO e Squad de Dados)[cite: 13, 15, 16]:</p>
+        
+        <h3>Cenário AS-IS (Atual)</h3>
+        <p>Identifiquei um hand-off direto entre a solicitação inicial do cliente e o backlog de desenvolvimento, sem nenhuma etapa de validação de requisitos ou filtro de entrada (Definition of Ready - DoR)[cite: 15].</p>
+
+        <h3>Cenário TO-BE (Futuro Implementado)</h3>
+        <p>Implementei Gateways de Validação e um filtro de refinamento preliminar conduzido pelo PO antes da liberação de qualquer demanda para a squad técnica[cite: 15, 16].</p>
+
+        <h2>3. A Solução de Discovery: Briefing Orientado à Pergunta de Negócio</h2>
+        <p>Para operacionalizar o cenário TO-BE, estruturei um checklist obrigatório de Discovery & DoR com 4 perguntas essenciais antes da criação de qualquer User Story no Jira[cite: 16]:</p>
+        
+        <div class="checklist-box">
+            <strong>Checklist de Entrada (DoR):</strong>
+            <ol>
+                <li><strong>A Pergunta de Negócio:</strong> Qual hipótese ou dúvida exata este estudo precisa responder[cite: 16]?</li>
+                <li><strong>Impacto na Tomada de Decisão:</strong> Qual ação comercial ou operacional será tomada a partir desse resultado[cite: 16]?</li>
+                <li><strong>Métricas Primárias:</strong> Quais KPIs e dimensões são indispensáveis para essa análise[cite: 16]?</li>
+                <li><strong>Critérios de Aceite:</strong> Qual o formato de saída esperado (dashboard, tabela analítica ou relatório sintético)[cite: 16]?</li>
+            </ol>
+        </div>
+
+        <h2>4. Estruturação no Jira & Governança Técnicas</h2>
+        <ul>
+            <li><strong>Guia de Ancoragem:</strong> O briefing aprovado passou a ser acoplado diretamente ao Epic/User Story no Jira[cite: 16].</li>
+            <li><strong>Controle de Mudanças:</strong> Alterações solicitadas fora da pergunta de negócio original passaram a ser renegociadas com base na matriz inicial de entrada[cite: 16].</li>
+            <li><strong>Autonomia da Squad:</strong> A equipe técnica passou a ter clareza total das regras de negócio e relacionamentos de tabelas (SQL) antes de iniciar qualquer código[cite: 16].</li>
+        </ul>
+
+        <h2>5. Resultados & Impacto Alcançado</h2>
+        <ul>
+            <li><strong>Redução de Lead Time:</strong> Redução do tempo de ciclo total de entrega em 64% (de 14 para 5 dias)[cite: 1, 42].</li>
+            <li><strong>Zero Retrabalho:</strong> Zeradas as solicitações de refação por falta de alinhamento prévio ou ambiguidade nos requisitos[cite: 16].</li>
+            <li><strong>Foco & Eficiência:</strong> Manutenção da equipe técnica focada 100% em entregas de alto valor agregado[cite: 17].</li>
+            <li><strong>Governança Consolidada:</strong> Padronização completa da documentação e histórico rastreável de requisitos[cite: 17].</li>
+        </ul>
+
+        <a href="index.html" class="back-link" style="margin-top: 2rem;">← Voltar para o Portfólio</a>
+    </div>
+</body>
+</html>
