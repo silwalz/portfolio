@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case: Redução de Churn em 56% | Silvia Walz</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg: #fafafa; --surface: #ffffff; --border: #e4e4e7; --text-main: #18181b; --text-muted: #71717a; --accent: #2563eb; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
+        body { background-color: var(--bg); color: var(--text-main); line-height: 1.7; padding: 3rem 1.5rem; }
+        .container { max-width: 800px; margin: 0 auto; }
+        .back-link { display: inline-block; color: var(--accent); text-decoration: none; font-weight: 600; font-size: 0.9rem; margin-bottom: 2rem; }
+        .back-link:hover { text-decoration: underline; }
+        h1 { font-size: 2.2rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 1rem; }
+        .meta-info { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.5rem; border-bottom: 1px solid var(--border); padding-bottom: 1.5rem; font-size: 0.875rem; color: var(--text-muted); }
+        .meta-item strong { color: var(--text-main); }
+        h2 { font-size: 1.4rem; font-weight: 600; margin: 2.5rem 0 1rem 0; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; }
+        h3 { font-size: 1.1rem; font-weight: 600; margin: 1.5rem 0 0.5rem 0; }
+        p, li { color: #3f3f46; font-size: 0.975rem; margin-bottom: 1rem; }
+        ul, ol { padding-left: 1.25rem; margin-bottom: 1.25rem; }
+        .highlight-box { background: #eff6ff; border-left: 4px solid var(--accent); padding: 1.25rem; border-radius: 6px; margin: 1.5rem 0; }
+        pre { background: #18181b; color: #f4f4f5; padding: 1.25rem; border-radius: 8px; overflow-x: auto; font-size: 0.85rem; margin: 1rem 0 1.5rem 0; }
+        table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.9rem; }
+        th, td { border: 1px solid var(--border); padding: 0.75rem; text-align: left; }
+        th { background: #f4f4f5; font-weight: 600; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← Voltar para o Portfólio</a>
+        
+        <h1>Reduzindo o Churn em 56% via Discovery Quanti-Quali, SQL e Priorização por OKRs</h1>
+        
+        <div class="meta-info">
+            <div class="meta-item"><strong>Papel:</strong> Product Manager</div>
+            <div class="meta-item"><strong>Foco:</strong> Retenção de Clientes (SaaS B2B)</div>
+            <div class="meta-item"><strong>Ferramentas:</strong> SQL, Continuous Discovery, RICE, BDD, LLM/IA</div>
+        </div>
+
+        <h2>1. Contexto & Problema de Negócio</h2>
+        <p>O <strong>FlowLog B2B</strong> é uma plataforma SaaS de gestão de pedidos e acompanhamento de entregas voltada para indústrias e distribuidoras. Com ~45 clientes ativos e ARR de $180K, a empresa enfrentava uma taxa de <strong>MRR Churn de 8,3%</strong> (com 20% de cancelamento concentrado no mês 3).</p>
+        
+        <div class="highlight-box">
+            <strong>Desafio & Reframe:</strong> O C-Level acreditava que o churn ocorria por "falta de features". Através de auditoria de uso e telemetria, reframei a hipótese: o problema não era falta de funcionalidades, mas sim a incapacidade do cliente de extrair valor nos primeiros 30 dias por conta de um onboarding complexo.
+        </div>
+
+        <h2>2. Investigação & Discovery Quanti-Quali</h2>
+        <h3>Track Quantitativo (Análise via SQL)</h3>
+        <p>Consultei a base de eventos para identificar os gargalos no funil de onboarding e adoção de features:</p>
+        <pre><code>-- Análise do Funil de Onboarding (PostgreSQL)
+SELECT 
+    user_id, event_name, COUNT(*) as occurrences 
+FROM product_events 
+WHERE event_name IN ('first_login', 'profile_setup_complete', 'first_order_created', 'automation_rule_created') 
+GROUP BY user_id, event_name;</code></pre>
+        <p><strong>Descoberta:</strong> 100% dos usuários faziam login, 78% configuravam perfil, mas apenas 3% conseguiam concluir a criação de regras automatizadas. Havia um abismo entre o uso básico e avançado do produto.</p>
+
+        <h3>Track Qualitativo & Uso de IA na Análise</h3>
+        <p>Conduzi 11 entrevistas em profundidade (segmentadas entre clientes retidos, em risco e cancelados). Utilizei o Whisper e Claude 3.5 para transcrição, síntese e clustering automático de temas em Python/JSON, reduzindo em 80% o tempo de análise de UX Research.</p>
+
+        <h2>3. Priorização (RICE) & Reestruturação do Roadmap</h2>
+        <p>Mudei a orientação do roadmap de <em>build features</em> para <em>outcomes de retenção</em>. Apliquei a matriz RICE para priorizar a construção de um <strong>Guided Tour no Onboarding</strong>:</p>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Iniciativa</th>
+                    <th>Reach</th>
+                    <th>Impact</th>
+                    <th>Confidence</th>
+                    <th>Effort</th>
+                    <th>Score RICE</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Guided Tour Onboarding</strong></td>
+                    <td>3</td>
+                    <td>3</td>
+                    <td>90%</td>
+                    <td>2</td>
+                    <td><strong>4.05 (P1)</strong></td>
+                </tr>
+                <tr>
+                    <td>Simplify Automation UX</td>
+                    <td>2</td>
+                    <td>2.5</td>
+                    <td>85%</td>
+                    <td>1.5</td>
+                    <td>2.83 (P2)</td>
+                </tr>
+                <tr>
+                    <td>API Pública (Desejo C-Level)</td>
+                    <td>1</td>
+                    <td>2.5</td>
+                    <td>70%</td>
+                    <td>0.5</td>
+                    <td>3.50 (Diferido)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>4. Entrega Técnica & Especificação (BDD)</h2>
+        <p>Estruturei os requisitos do novo Onboarding em formato BDD para o time de engenharia:</p>
+        <pre><code>Funcionalidade: Onboarding Guiado para Novos Usuários
+Cenário: Usuário cria primeiro pedido no Step 3
+  Dado que estou no Step 3 (Criar Primeiro Pedido)
+  E vejo o formulário com campos pré-preenchidos
+  Quando preencho "Cliente", "Produto", "Quantidade" e clico em "Criar Pedido"
+  Então o pedido deve ser criado com sucesso
+  E o sistema deve mostrar "Sucesso! Seu primeiro pedido está pronto"</code></pre>
+
+        <h2>5. Resultados & Impacto Alcançado</h2>
+        <ul>
+            <li><strong>Redução de Churn:</strong> MRR Churn caiu de 8,3% para &lt;4% (redução de 56%).</li>
+            <li><strong>Adoção de Features:</strong> Crescimento de 15% para &gt;50% nas principais funcionalidades.</li>
+            <li><strong>Evolução do NPS:</strong> De 22 para 45+.</li>
+            <li><strong>Tempo de Primeiro Valor:</strong> Reduzido de 2 minutos de hesitação para &lt;30 segundos.</li>
+        </ul>
+
+        <a href="index.html" class="back-link" style="margin-top: 2rem;">← Voltar para o Portfólio</a>
+    </div>
+</body>
+</html>
