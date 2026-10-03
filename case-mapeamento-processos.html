@@ -3,40 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Case: Mapeamento de Processos AS-IS/TO-BE | Silvia Walz</title>
+    <title>Acelerando Entrega de Dados em 64% | Silvia Walz</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        :root { --bg: #fafafa; --surface: #ffffff; --border: #e4e4e7; --text-main: #18181b; --text-muted: #71717a; --accent: #2563eb; }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
-        body { background-color: var(--bg); color: var(--text-main); line-height: 1.7; padding: 3rem 1.5rem; }
-        .container { max-width: 800px; margin: 0 auto; }
-        .back-link { display: inline-block; color: var(--accent); text-decoration: none; font-weight: 600; font-size: 0.9rem; margin-bottom: 2rem; }
-        .back-link:hover { text-decoration: underline; }
-        h1 { font-size: 2.2rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 1rem; }
-        .meta-info { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.5rem; border-bottom: 1px solid var(--border); padding-bottom: 1.5rem; font-size: 0.875rem; color: var(--text-muted); }
-        .meta-item strong { color: var(--text-main); }
-        h2 { font-size: 1.4rem; font-weight: 600; margin: 2.5rem 0 1rem 0; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; }
-        h3 { font-size: 1.1rem; font-weight: 600; margin: 1.5rem 0 0.5rem 0; }
-        p, li { color: #3f3f46; font-size: 0.975rem; margin-bottom: 1rem; }
+        :root {
+            --bg: #fcfcfc;
+            --surface: #ffffff;
+            --text-primary: #0f0f11;
+            --text-secondary: #52525b;
+            --text-muted: #80808a;
+            --border: #e4e4e7;
+            --border-dark: #0f0f11;
+            --pill-bg: #f4f4f5;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: var(--bg); color: var(--text-primary); font-family: 'Plus Jakarta Sans', sans-serif; line-height: 1.75; padding: 3rem 1.5rem; -webkit-font-smoothing: antialiased; }
+        .container { max-width: 820px; margin: 0 auto; }
+        
+        .back-link { display: inline-flex; align-items: center; gap: 0.4rem; color: var(--text-primary); text-decoration: none; font-size: 0.85rem; font-weight: 500; margin-bottom: 2.5rem; padding: 0.4rem 0.9rem; border: 1px solid var(--border); border-radius: 6px; background: var(--surface); transition: all 0.2s ease; }
+        .back-link:hover { border-color: var(--border-dark); }
+        
+        .case-category { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 0.75rem; }
+        h1 { font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 600; line-height: 1.25; letter-spacing: -0.02em; margin-bottom: 1.5rem; }
+        
+        .meta-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; padding: 1.25rem; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; margin-bottom: 3rem; font-size: 0.85rem; }
+        .meta-item strong { display: block; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 0.2rem; }
+        .meta-item span { color: var(--text-primary); font-weight: 500; }
+
+        h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 600; margin: 2.75rem 0 1rem 0; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border-dark); }
+        h3 { font-size: 1.05rem; font-weight: 600; margin: 1.75rem 0 0.5rem 0; color: var(--text-primary); }
+        p, li { color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1.1rem; }
         ul, ol { padding-left: 1.25rem; margin-bottom: 1.25rem; }
-        .highlight-box { background: #eff6ff; border-left: 4px solid var(--accent); padding: 1.25rem; border-radius: 6px; margin: 1.5rem 0; }
-        .checklist-box { background: #f4f4f5; padding: 1.25rem; border-radius: 8px; margin: 1.5rem 0; border: 1px solid var(--border); }
-        .image-container { margin: 1.5rem 0 2rem 0; text-align: center; }
-        .image-container img { width: 100%; max-width: 780px; border-radius: 8px; border: 1px solid var(--border); box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
-        .image-caption { font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; }
+
+        .highlight-box { background: var(--surface); border-left: 3px solid var(--border-dark); border-top: 1px solid var(--border); border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 1.35rem; border-radius: 4px; margin: 1.75rem 0; }
+        .checklist-box { background: var(--pill-bg); padding: 1.25rem; border-radius: 6px; margin: 1.5rem 0; border: 1px solid var(--border); }
+        
+        .image-container { margin: 2rem 0; text-align: center; }
+        .image-container img { width: 100%; max-width: 800px; border-radius: 6px; border: 1px solid var(--border); box-shadow: 0 4px 15px rgba(0,0,0,0.03); }
+        .image-caption { font-size: 0.8rem; color: var(--text-muted); margin-top: 0.6rem; font-style: italic; }
     </style>
 </head>
 <body>
     <div class="container">
         <a href="./" class="back-link">← Voltar para o Portfólio</a>
         
+        <div class="case-category">02 / Product Ownership & Processos</div>
         <h1>Acelerando a Entrega de Dados em 64% através do Mapeamento de Processos AS-IS e TO-BE</h1>
         
-        <div class="meta-info">
-            <div class="meta-item"><strong>Papel:</strong> Product Owner</div>
-            <div class="meta-item"><strong>Foco:</strong> Product Discovery, Engenharia de Requisitos e Governança</div>
-            <div class="meta-item"><strong>Ferramentas:</strong> Bizagi (BPMN 2.0), Jira, Notion, SQL</div>
+        <div class="meta-grid">
+            <div class="meta-item"><strong>Papel</strong><span>Product Owner</span></div>
+            <div class="meta-item"><strong>Foco</strong><span>Process Discovery & Engenharia de Requisitos</span></div>
+            <div class="meta-item"><strong>Ferramentas</strong><span>Bizagi (BPMN 2.0), Jira, DoR & DoD</span></div>
         </div>
 
         <h2>1. Contexto & O Problema de Negócio</h2>
@@ -58,7 +79,6 @@
         <h3>Cenário AS-IS (Atual)</h3>
         <p>Identifiquei um hand-off direto entre a solicitação inicial do cliente e o backlog de desenvolvimento, sem nenhuma etapa de validação de requisitos ou filtro de entrada (Definition of Ready - DoR).</p>
 
-        <!-- Imagem AS-IS -->
         <div class="image-container">
             <img src="as-is.png" alt="Mapeamento do processo AS-IS no Bizagi">
             <div class="image-caption">Figura 1: Fluxo de trabalho AS-IS apresentando gargalos de entrada e falta de refinamento prévio.</div>
@@ -67,7 +87,6 @@
         <h3>Cenário TO-BE (Futuro Implementado)</h3>
         <p>Implementei Gateways de Validação e um filtro de refinamento preliminar conduzido pelo PO antes da liberação de qualquer demanda para a squad técnica.</p>
 
-        <!-- Imagem TO-BE -->
         <div class="image-container">
             <img src="to-be.png" alt="Mapeamento do processo TO-BE no Bizagi">
             <div class="image-caption">Figura 2: Fluxo TO-BE reorganizado com raias de responsabilidade, travas de validação e DoR.</div>
@@ -101,7 +120,9 @@
             <li><strong>Governança Consolidada:</strong> Padronização completa da documentação e histórico rastreável de requisitos.</li>
         </ul>
 
-        <a href="./" class="back-link" style="margin-top: 2rem;">← Voltar para o Portfólio</a>
+        <div style="margin-top: 3.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border);">
+            <a href="./" class="back-link">← Voltar para o Portfólio</a>
+        </div>
     </div>
 </body>
 </html>
