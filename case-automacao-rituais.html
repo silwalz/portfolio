@@ -38,6 +38,10 @@
         p, li { color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1.1rem; }
         ul, ol { padding-left: 1.25rem; margin-bottom: 1.25rem; }
 
+        .image-container { margin: 2rem 0; text-align: center; }
+        .image-container img { width: 100%; max-width: 800px; border-radius: 6px; border: 1px solid var(--border); box-shadow: 0 4px 15px rgba(0,0,0,0.03); }
+        .image-caption { font-size: 0.8rem; color: var(--text-muted); margin-top: 0.6rem; font-style: italic; }
+
         table { width: 100%; border-collapse: collapse; margin: 1.75rem 0; font-size: 0.875rem; }
         th, td { border: 1px solid var(--border); padding: 0.75rem 1rem; text-align: left; }
         th { background: var(--pill-bg); font-weight: 600; color: var(--text-primary); }
@@ -68,6 +72,12 @@
             <li><strong>Orquestração (n8n):</strong> Recebe webhooks do Fireflies, aplica regras de validação, formata a estrutura do comentário em JSON e faz chamadas de API para a tarefa correspondente.</li>
             <li><strong>Gestão (ClickUp):</strong> Recebe o resumo padronizado no card do cliente e faz o lançamento automático do tempo gasto no ritual (time tracking).</li>
         </ul>
+
+        <!-- Imagem do Fluxo n8n -->
+        <div class="image-container">
+            <img src="fluxo-n8n.png" alt="Fluxo de automação construído no n8n">
+            <div class="image-caption">Figura 1: Orquestração do fluxo de automação no n8n integrando Fireflies.ai e ClickUp via Webhooks e APIs.</div>
+        </div>
 
         <h2>4. Resultados & Impacto Operacional</h2>
         <table>
