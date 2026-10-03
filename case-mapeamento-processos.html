@@ -21,11 +21,15 @@
         ul, ol { padding-left: 1.25rem; margin-bottom: 1.25rem; }
         .highlight-box { background: #eff6ff; border-left: 4px solid var(--accent); padding: 1.25rem; border-radius: 6px; margin: 1.5rem 0; }
         .checklist-box { background: #f4f4f5; padding: 1.25rem; border-radius: 8px; margin: 1.5rem 0; border: 1px solid var(--border); }
+        .image-container { margin: 1.5rem 0 2rem 0; text-align: center; }
+        .image-container img { width: 100%; max-width: 780px; border-radius: 8px; border: 1px solid var(--border); box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+        .image-caption { font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; }
     </style>
 </head>
 <body>
     <div class="container">
-<a href="./" class="back-link">← Voltar para o Portfólio</a>        
+        <a href="./" class="back-link">← Voltar para o Portfólio</a>
+        
         <h1>Acelerando a Entrega de Dados em 64% através do Mapeamento de Processos AS-IS e TO-BE</h1>
         
         <div class="meta-info">
@@ -35,56 +39,68 @@
         </div>
 
         <h2>1. Contexto & O Problema de Negócio</h2>
-        <p>Demandas de análises e estudos de dados chegavam com requisitos vagos e sem direcionamento claro de negócio. Isso gerava um ciclo recorrente de retrabalho, alto lead time e desalinhamento entre as expectativas dos clientes/stakeholders e as entregas da equipe técnica.</p>
+        <p>Demandas de análises e estudos de dados chegavam com requisitos vagos e sem direcionamento claro de negócio[cite: 14]. Isso gerava um ciclo recorrente de retrabalho, alto lead time e desalinhamento entre as expectativas dos clientes/stakeholders e as entregas da equipe técnica[cite: 14].</p>
         
         <div class="highlight-box">
             <strong>Gargalos Identificados:</strong>
             <ul>
-                <li><strong>Falta de Alinhamento Inicial:</strong> Solicitações abertas sem definição clara de qual decisão o estudo guiaria.</li>
-                <li><strong>Escopo Volátil (Scope Creep):</strong> Mudanças constantes de escopo durante a fase de desenvolvimento.</li>
-                <li><strong>Desperdício de Capacidade:</strong> Consultas SQL complexas executadas para responder a perguntas não priorizadas.</li>
-                <li><strong>Refação Elevada:</strong> Constante necessidade de ajustes pós-entrega por falta de critérios de aceite claros.</li>
+                <li><strong>Falta de Alinhamento Inicial:</strong> Solicitações abertas sem definição clara de qual decisão o estudo guiaria[cite: 14].</li>
+                <li><strong>Escopo Volátil (Scope Creep):</strong> Mudanças constantes de escopo durante a fase de desenvolvimento[cite: 14].</li>
+                <li><strong>Desperdício de Capacidade:</strong> Consultas SQL complexas executadas para responder a perguntas não priorizadas[cite: 14].</li>
+                <li><strong>Refação Elevada:</strong> Constante necessidade de ajustes pós-entrega por falta de critérios de aceite claros[cite: 14].</li>
             </ul>
         </div>
 
         <h2>2. Mapeamento de Processos: AS-IS vs. TO-BE</h2>
-        <p>Desenhei o fluxo de trabalho em notação BPMN 2.0 no Bizagi para mapear o processo e reorganizar as responsabilidades em raias (Stakeholders/Clientes, PO e Squad de Dados):</p>
+        <p>Desenhei o fluxo de trabalho em notação BPMN 2.0 no Bizagi para mapear o processo e reorganizar as responsabilidades em raias (Stakeholders/Clientes, PO e Squad de Dados)[cite: 13, 15, 16]:</p>
         
         <h3>Cenário AS-IS (Atual)</h3>
-        <p>Identifiquei um hand-off direto entre a solicitação inicial do cliente e o backlog de desenvolvimento, sem nenhuma etapa de validação de requisitos ou filtro de entrada (Definition of Ready - DoR).</p>
+        <p>Identifiquei um hand-off direto entre a solicitação inicial do cliente e o backlog de desenvolvimento, sem nenhuma etapa de validação de requisitos ou filtro de entrada (Definition of Ready - DoR)[cite: 15].</p>
+
+        <!-- Imagem AS-IS -->
+        <div class="image-container">
+            <img src="as-is.png" alt="Mapeamento do processo AS-IS no Bizagi">
+            <div class="image-caption">Figura 1: Fluxo de trabalho AS-IS apresentando gargalos de entrada e falta de refinamento prévio.</div>
+        </div>
 
         <h3>Cenário TO-BE (Futuro Implementado)</h3>
-        <p>Implementei Gateways de Validação e um filtro de refinamento preliminar conduzido pelo PO antes da liberação de qualquer demanda para a squad técnica.</p>
+        <p>Implementei Gateways de Validação e um filtro de refinamento preliminar conduzido pelo PO antes da liberação de qualquer demanda para a squad técnica[cite: 15, 16].</p>
+
+        <!-- Imagem TO-BE -->
+        <div class="image-container">
+            <img src="to-be.png" alt="Mapeamento do processo TO-BE no Bizagi">
+            <div class="image-caption">Figura 2: Fluxo TO-BE reorganizado com raias de responsabilidade, travas de validação e DoR.</div>
+        </div>
 
         <h2>3. A Solução de Discovery: Briefing Orientado à Pergunta de Negócio</h2>
-        <p>Para operacionalizar o cenário TO-BE, estruturei um checklist obrigatório de Discovery & DoR com 4 perguntas essenciais antes da criação de qualquer User Story no Jira:</p>
+        <p>Para operacionalizar o cenário TO-BE, estruturei um checklist obrigatório de Discovery & DoR com 4 perguntas essenciais antes da criação de qualquer User Story no Jira[cite: 16]:</p>
         
         <div class="checklist-box">
             <strong>Checklist de Entrada (DoR):</strong>
             <ol>
-                <li><strong>A Pergunta de Negócio:</strong> Qual hipótese ou dúvida exata este estudo precisa responder?</li>
-                <li><strong>Impacto na Tomada de Decisão:</strong> Qual ação comercial ou operacional será tomada a partir desse resultado?</li>
-                <li><strong>Métricas Primárias:</strong> Quais KPIs e dimensões são indispensáveis para essa análise?</li>
-                <li><strong>Critérios de Aceite:</strong> Qual o formato de saída esperado (dashboard, tabela analítica ou relatório sintético)?</li>
+                <li><strong>A Pergunta de Negócio:</strong> Qual hipótese ou dúvida exata este estudo precisa responder[cite: 16]?</li>
+                <li><strong>Impacto na Tomada de Decisão:</strong> Qual ação comercial ou operacional será tomada a partir desse resultado[cite: 16]?</li>
+                <li><strong>Métricas Primárias:</strong> Quais KPIs e dimensões são indispensáveis para essa análise[cite: 16]?</li>
+                <li><strong>Critérios de Aceite:</strong> Qual o formato de saída esperado (dashboard, tabela analítica ou relatório sintético)[cite: 16]?</li>
             </ol>
         </div>
 
         <h2>4. Estruturação no Jira & Governança Técnica</h2>
         <ul>
-            <li><strong>Guia de Ancoragem:</strong> O briefing aprovado passou a ser acoplado diretamente ao Epic/User Story no Jira.</li>
-            <li><strong>Controle de Mudanças:</strong> Alterações solicitadas fora da pergunta de negócio original passaram a ser renegociadas com base na matriz inicial de entrada.</li>
-            <li><strong>Autonomia da Squad:</strong> A equipe técnica passou a ter clareza total das regras de negócio e relacionamentos de tabelas (SQL) antes de iniciar qualquer código.</li>
+            <li><strong>Guia de Ancoragem:</strong> O briefing aprovado passou a ser acoplado diretamente ao Epic/User Story no Jira[cite: 16].</li>
+            <li><strong>Controle de Mudanças:</strong> Alterações solicitadas fora da pergunta de negócio original passaram a ser renegociadas com base na matriz inicial de entrada[cite: 16].</li>
+            <li><strong>Autonomia da Squad:</strong> A equipe técnica passou a ter clareza total das regras de negócio e relacionamentos de tabelas (SQL) antes de iniciar qualquer código[cite: 16].</li>
         </ul>
 
         <h2>5. Resultados & Impacto Alcançado</h2>
         <ul>
-            <li><strong>Redução de Lead Time:</strong> Redução do tempo de ciclo total de entrega em 64% (de 14 para 5 dias).</li>
-            <li><strong>Zero Retrabalho:</strong> Zeradas as solicitações de refação por falta de alinhamento prévio ou ambiguidade nos requisitos.</li>
-            <li><strong>Foco & Eficiência:</strong> Manutenção da equipe técnica focada 100% em entregas de alto valor agregado.</li>
-            <li><strong>Governança Consolidada:</strong> Padronização completa da documentação e histórico rastreável de requisitos.</li>
+            <li><strong>Redução de Lead Time:</strong> Redução do tempo de ciclo total de entrega em 64% (de 14 para 5 dias)[cite: 1, 42].</li>
+            <li><strong>Zero Retrabalho:</strong> Zeradas as solicitações de refação por falta de alinhamento prévio ou ambiguidade nos requisitos[cite: 16].</li>
+            <li><strong>Foco & Eficiência:</strong> Manutenção da equipe técnica focada 100% em entregas de alto valor agregado[cite: 17].</li>
+            <li><strong>Governança Consolidada:</strong> Padronização completa da documentação e histórico rastreável de requisitos[cite: 17].</li>
         </ul>
 
-        <a href="index.html" class="back-link" style="margin-top: 2rem;">← Voltar para o Portfólio</a>
+        <a href="./" class="back-link" style="margin-top: 2rem;">← Voltar para o Portfólio</a>
     </div>
 </body>
 </html>
