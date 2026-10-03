@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case: Automação de Rituais com IA e n8n | Silvia Walz</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg: #fafafa; --surface: #ffffff; --border: #e4e4e7; --text-main: #18181b; --text-muted: #71717a; --accent: #2563eb; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
+        body { background-color: var(--bg); color: var(--text-main); line-height: 1.7; padding: 3rem 1.5rem; }
+        .container { max-width: 800px; margin: 0 auto; }
+        .back-link { display: inline-block; color: var(--accent); text-decoration: none; font-weight: 600; font-size: 0.9rem; margin-bottom: 2rem; }
+        .back-link:hover { text-decoration: underline; }
+        h1 { font-size: 2.2rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 1rem; }
+        .meta-info { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.5rem; border-bottom: 1px solid var(--border); padding-bottom: 1.5rem; font-size: 0.875rem; color: var(--text-muted); }
+        .meta-item strong { color: var(--text-main); }
+        h2 { font-size: 1.4rem; font-weight: 600; margin: 2.5rem 0 1rem 0; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; }
+        h3 { font-size: 1.1rem; font-weight: 600; margin: 1.5rem 0 0.5rem 0; }
+        p, li { color: #3f3f46; font-size: 0.975rem; margin-bottom: 1rem; }
+        ul, ol { padding-left: 1.25rem; margin-bottom: 1.25rem; }
+        .highlight-box { background: #eff6ff; border-left: 4px solid var(--accent); padding: 1.25rem; border-radius: 6px; margin: 1.5rem 0; }
+        table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.9rem; }
+        th, td { border: 1px solid var(--border); padding: 0.75rem; text-align: left; }
+        th { background: #f4f4f5; font-weight: 600; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="./" class="back-link">← Voltar para o Portfólio</a>
+        
+        <h1>Economizando 100+ Horas por Ano: Automação de Rituais Diários com IA e n8n</h1>
+        
+        <div class="meta-info">
+            <div class="meta-item"><strong>Papel:</strong> Product Owner</div>
+            <div class="meta-item"><strong>Foco:</strong> Automação de Ritos, Governança & IA Generativa</div>
+            <div class="meta-item"><strong>Ferramentas:</strong> n8n, Fireflies.ai, ClickUp, Webhooks/APIs</div>
+        </div>
+
+        <h2>1. Situação & O Desafio</h2>
+        <p>A operação de performance e canais digitais girava em torno de reuniões diárias com clientes. Cada analista gastava cerca de 30 minutos por dia transcrevendo notas, registrando action items e apontando horas manualmente no ClickUp. Esse processo descentralizado gerava perda de histórico e gastava ~2,5 horas semanais por pessoa.</p>
+
+        <h2>2. Discovery do Processo (AS-IS)</h2>
+        <p>Mapeei o fluxo real pós-reunião observando o trabalho dos analistas. Em vez de automatizar tudo sem critério, separei as etapas repetitivas e baseadas em regras (extrair, formatar e registrar) das etapas que exigiam julgamento humano (decisões estratégicas com o cliente).</p>
+
+        <h2>3. Arquitetura da Solução & Regras de Negócio</h2>
+        <ul>
+            <li><strong>Camada de IA (Fireflies.ai):</strong> Gravador automático, transcrição e sumarização inteligente com extração de tópicos e action items.</li>
+            <li><strong>Orquestração (n8n):</strong> Recebe webhooks do Fireflies, aplica regras de validação, formata a estrutura do comentário em JSON e faz chamadas de API para a tarefa correspondente.</li>
+            <li><strong>Gestão (ClickUp):</strong> Recebe o resumo padronizado no card do cliente e faz o lançamento automático do tempo gasto no ritual (time tracking).</li>
+        </ul>
+
+        <h2>4. Resultados & Impacto Operacional</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Métrica</th>
+                    <th>Antes</th>
+                    <th>Depois</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Tempo Manual pós-reunião</strong></td>
+                    <td>~30 min/dia por analista</td>
+                    <td><strong>0 min</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>Horas Devolvidas</strong></td>
+                    <td>0h</td>
+                    <td><strong>~10h/mês por analista (+100h/ano no time)</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>Action Items Esquecidos</strong></td>
+                    <td>Frequentes</td>
+                    <td><strong>Zero</strong></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <a href="./" class="back-link" style="margin-top: 2rem;">← Voltar para o Portfólio</a>
+    </div>
+</body>
+</html>
