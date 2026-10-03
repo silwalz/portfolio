@@ -3,38 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Case: Redução de Churn em 56% | Silvia Walz</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Reduzindo o Churn em 56% | Silvia Walz</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        :root { --bg: #fafafa; --surface: #ffffff; --border: #e4e4e7; --text-main: #18181b; --text-muted: #71717a; --accent: #2563eb; }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
-        body { background-color: var(--bg); color: var(--text-main); line-height: 1.7; padding: 3rem 1.5rem; }
-        .container { max-width: 800px; margin: 0 auto; }
-        .back-link { display: inline-block; color: var(--accent); text-decoration: none; font-weight: 600; font-size: 0.9rem; margin-bottom: 2rem; }
-        .back-link:hover { text-decoration: underline; }
-        h1 { font-size: 2.2rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 1rem; }
-        .meta-info { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.5rem; border-bottom: 1px solid var(--border); padding-bottom: 1.5rem; font-size: 0.875rem; color: var(--text-muted); }
-        .meta-item strong { color: var(--text-main); }
-        h2 { font-size: 1.4rem; font-weight: 600; margin: 2.5rem 0 1rem 0; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; }
-        h3 { font-size: 1.1rem; font-weight: 600; margin: 1.5rem 0 0.5rem 0; }
-        p, li { color: #3f3f46; font-size: 0.975rem; margin-bottom: 1rem; }
+        :root {
+            --bg: #fcfcfc;
+            --surface: #ffffff;
+            --text-primary: #0f0f11;
+            --text-secondary: #52525b;
+            --text-muted: #80808a;
+            --border: #e4e4e7;
+            --border-dark: #0f0f11;
+            --pill-bg: #f4f4f5;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: var(--bg); color: var(--text-primary); font-family: 'Plus Jakarta Sans', sans-serif; line-height: 1.75; padding: 3rem 1.5rem; -webkit-font-smoothing: antialiased; }
+        .container { max-width: 820px; margin: 0 auto; }
+        
+        .back-link { display: inline-flex; align-items: center; gap: 0.4rem; color: var(--text-primary); text-decoration: none; font-size: 0.85rem; font-weight: 500; margin-bottom: 2.5rem; padding: 0.4rem 0.9rem; border: 1px solid var(--border); border-radius: 6px; background: var(--surface); transition: all 0.2s ease; }
+        .back-link:hover { border-color: var(--border-dark); }
+        
+        .case-category { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 0.75rem; }
+        h1 { font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 600; line-height: 1.25; letter-spacing: -0.02em; margin-bottom: 1.5rem; }
+        
+        .meta-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; padding: 1.25rem; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; margin-bottom: 3rem; font-size: 0.85rem; }
+        .meta-item strong { display: block; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 0.2rem; }
+        .meta-item span { color: var(--text-primary); font-weight: 500; }
+
+        h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 600; margin: 2.75rem 0 1rem 0; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border-dark); }
+        h3 { font-size: 1.05rem; font-weight: 600; margin: 1.75rem 0 0.5rem 0; color: var(--text-primary); }
+        p, li { color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1.1rem; }
         ul, ol { padding-left: 1.25rem; margin-bottom: 1.25rem; }
-        .highlight-box { background: #eff6ff; border-left: 4px solid var(--accent); padding: 1.25rem; border-radius: 6px; margin: 1.5rem 0; }
-        pre { background: #18181b; color: #f4f4f5; padding: 1.25rem; border-radius: 8px; overflow-x: auto; font-size: 0.85rem; margin: 1rem 0 1.5rem 0; }
-        table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.9rem; }
-        th, td { border: 1px solid var(--border); padding: 0.75rem; text-align: left; }
-        th { background: #f4f4f5; font-weight: 600; }
+
+        .highlight-box { background: var(--surface); border-left: 3px solid var(--border-dark); border-top: 1px solid var(--border); border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 1.35rem; border-radius: 4px; margin: 1.75rem 0; }
+        .highlight-box strong { color: var(--text-primary); }
+        pre { background: #0f0f11; color: #f4f4f5; padding: 1.25rem; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; margin: 1rem 0 1.5rem 0; font-family: monospace; }
+        
+        table { width: 100%; border-collapse: collapse; margin: 1.75rem 0; font-size: 0.875rem; }
+        th, td { border: 1px solid var(--border); padding: 0.75rem 1rem; text-align: left; }
+        th { background: var(--pill-bg); font-weight: 600; color: var(--text-primary); }
+
+        footer-nav { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; }
     </style>
 </head>
 <body>
     <div class="container">
-<a href="./" class="back-link">← Voltar para o Portfólio</a>        
+        <a href="./" class="back-link">← Voltar para o Portfólio</a>
+        
+        <div class="case-category">01 / Product Management & Discovery</div>
         <h1>Reduzindo o Churn em 56% via Discovery Quanti-Quali, SQL e Priorização por OKRs</h1>
         
-        <div class="meta-info">
-            <div class="meta-item"><strong>Papel:</strong> Product Manager</div>
-            <div class="meta-item"><strong>Foco:</strong> Retenção de Clientes (SaaS B2B)</div>
-            <div class="meta-item"><strong>Ferramentas:</strong> SQL, Continuous Discovery, RICE, BDD, LLM/IA</div>
+        <div class="meta-grid">
+            <div class="meta-item"><strong>Papel</strong><span>Product Manager</span></div>
+            <div class="meta-item"><strong>Foco</strong><span>Retenção & Onboarding (SaaS B2B)</span></div>
+            <div class="meta-item"><strong>Ferramentas & Métodos</strong><span>SQL, Continuous Discovery, RICE, BDD</span></div>
         </div>
 
         <h2>1. Contexto & Problema de Negócio</h2>
@@ -56,7 +82,7 @@ GROUP BY user_id, event_name;</code></pre>
         <p><strong>Descoberta:</strong> 100% dos usuários faziam login, 78% configuravam perfil, mas apenas 3% conseguiam concluir a criação de regras automatizadas. Havia um abismo entre o uso básico e avançado do produto.</p>
 
         <h3>Track Qualitativo & Uso de IA na Análise</h3>
-        <p>Conduzi 11 entrevistas em profundidade (segmentadas entre clientes retidos, em risco e cancelados). Utilizei o Whisper e Claude 3.5 para transcrição, síntese e clustering automático de temas em Python/JSON, reduzindo em 80% o tempo de análise de UX Research.</p>
+        <p>Conduzi 11 entrevistas em profundidade (segmentadas entre clientes retidos, em risco e cancelados). Utilizei transcrição automatizada e LLM para síntese e clustering automático de temas em Python/JSON, reduzindo em 80% o tempo de análise de UX Research.</p>
 
         <h2>3. Priorização (RICE) & Reestruturação do Roadmap</h2>
         <p>Mudei a orientação do roadmap de <em>build features</em> para <em>outcomes de retenção</em>. Apliquei a matriz RICE para priorizar a construção de um <strong>Guided Tour no Onboarding</strong>:</p>
@@ -118,7 +144,9 @@ Cenário: Usuário cria primeiro pedido no Step 3
             <li><strong>Tempo de Primeiro Valor:</strong> Reduzido de 2 minutos de hesitação para &lt;30 segundos.</li>
         </ul>
 
-        <a href="index.html" class="back-link" style="margin-top: 2rem;">← Voltar para o Portfólio</a>
+        <div style="margin-top: 3.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border);">
+            <a href="./" class="back-link">← Voltar para o Portfólio</a>
+        </div>
     </div>
 </body>
 </html>
